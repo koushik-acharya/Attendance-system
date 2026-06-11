@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>
+        {{ subject }} Attendance
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+    <div class="sidebar">
+
+        <h2>
+            Attendance System
+        </h2>
+
+        <a href="/">
+            Dashboard
+        </a>
+
+        <a href="/view_attendance">
+            View Attendance
+        </a>
+
+    </div>
+
+    <div class="main">
+
+        <div class="topbar">
+
+            <h1>
+
+                {{ subject }} Attendance
+
+            </h1>
+
+        </div>
+
+        <!-- STATS -->
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h2>
+                    Students
+                </h2>
+
+                <p>
+                    {{ total_students }}
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h2>
+                    Present
+                </h2>
+
+                <p>
+                    {{ present_students }}
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h2>
+                    Absent
+                </h2>
+
+                <p>
+                    {{ absent_students }}
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h2>
+                    Rate
+                </h2>
+
+                <p>
+                    {{ attendance_rate }}%
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="chart-box">
+
+            <h2>
+
+                 Attendance Analytics
+
+            </h2>
+
+            <canvas
+                id="attendanceChart"
+            >
+            </canvas>
+
+        </div>
+
+        <!-- SEARCH -->
+
+        <input
+
+            type="text"
+
+            id="searchInput"
+
+            placeholder="Search SRN or Name..."
+
+            class="search-box"
+
+            onkeyup="searchTable()"
+
+        >
+
+        <!-- TABLE -->
+
+        <div class="table-box">
+
+            <table id="attendanceTable">
+
+                <thead>
+
+                    <tr>
+
+                        <th>SRN</th>
+
+                        <th>Name</th>
+
+                        <th>Attended</th>
+
+                        <th>Total Classes</th>
+
+                        <th>Percentage</th>
+
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for row in data %}
+
+                    {% set percentage = (
+                        row["Attended"]
+                        /
+                        row["Total Classes"]
+                        * 100
+                    ) | round(2) %}
+
+                    <tr>
+
+                        <td>{{ row["SRN"] }}</td>
+
+                        <td>{{ row["Name"] }}</td>
+
+                        <td>{{ row["Attended"] }}</td>
+
+                        <td>{{ row["Total Classes"] }}</td>
+
+                        <td>
+
+                            {% if percentage >= 75 %}
+
+                            <span class="good">
+
+                                {{ percentage }}%
+
+                            </span>
+
+                            {% elif percentage >= 60 %}
+
+                            <span class="medium">
+
+                                {{ percentage }}%
+
+                            </span>
+
+                            {% else %}
+
+                            <span class="low">
+
+                                {{ percentage }}%
+
+                            </span>
+
+                            {% endif %}
+
+                        </td>
+
+                        <td>
+
+                            {% if percentage >= 75 %}
+
+                            <span class="good">
+
+                                Good
+
+                            </span>
+
+                            {% elif percentage >= 60 %}
+
+                            <span class="medium">
+
+                                Average
+
+                            </span>
+
+                            {% else %}
+
+                            <span class="low">
+
+                                Low
+
+                            </span>
+
+                            {% endif %}
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function searchTable() {
+
+            let input =
+            document.getElementById(
+                "searchInput"
+            );
+
+            let filter =
+            input.value.toUpperCase();
+
+            let table =
+            document.getElementById(
+                "attendanceTable"
+            );
+
+            let tr =
+            table.getElementsByTagName(
+                "tr"
+            );
+
+            for (
+                let i = 1;
+                i < tr.length;
+                i++
+            ) {
+
+                let srn =
+                tr[i].cells[0];
+
+                let name =
+                tr[i].cells[1];
+
+                if (
+                    srn &&
+                    name
+                ) {
+
+                    let txt1 =
+                    srn.textContent;
+
+                    let txt2 =
+                    name.textContent;
+
+                    if (
+
+                        txt1
+                        .toUpperCase()
+                        .indexOf(filter)
+                        > -1
+
+                        ||
+
+                        txt2
+                        .toUpperCase()
+                        .indexOf(filter)
+                        > -1
+
+                    ) {
+
+                        tr[i].style.display = "";
+
+                    }
+
+                    else {
+
+                        tr[i].style.display = "none";
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>View Attendance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Attendance System</h2>
+        <a href="/">Dashboard</a>
+        <a href="/view_attendance">View Attendance</a>
+    </div>
+    <div class="main">
+        <div class="topbar">
+            <h1>View Attendance</h1>
+        </div>
+        <div class="form-box">
+            <h2>Select Subject</h2>
+            <form id="attendanceForm">
+                <select id="subjectSelect" required>
+                    <option value="">Select Subject</option>
+                    {% for subject in subjects %}
+                        <option value="{{ subject }}">{{ subject }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit">View Attendance</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById("attendanceForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const subject = document.getElementById("subjectSelect").value;
+            if (subject) {
+                window.location.href = "/subject_attendance/" + encodeURIComponent(subject);
+            }
+        });
+    </script>
+</body>
+</html>
