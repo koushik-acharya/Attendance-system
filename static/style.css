@@ -1,0 +1,637 @@
+/* =========================
+GLOBAL
+========================= */
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0f172a,
+        #1e293b
+    );
+
+    color: white;
+
+    overflow-x: hidden;
+
+}
+
+/* =========================
+SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+
+    width: 10px;
+
+}
+
+::-webkit-scrollbar-thumb {
+
+    background: #2563eb;
+
+    border-radius: 10px;
+
+}
+
+/* =========================
+SIDEBAR
+========================= */
+
+.sidebar {
+
+    position: fixed;
+
+    width: 260px;
+
+    height: 100vh;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.06
+    );
+
+    backdrop-filter: blur(20px);
+
+    border-right:
+    1px solid rgba(
+        255,
+        255,
+        255,
+        0.08
+    );
+
+    padding-top: 30px;
+
+    box-shadow:
+    0 0 20px rgba(
+        0,
+        0,
+        0,
+        0.3
+    );
+
+}
+
+/* =========================
+LOGO
+========================= */
+
+.sidebar h2 {
+
+    text-align: center;
+
+    margin-bottom: 50px;
+
+    font-size: 28px;
+
+    color: white;
+
+    font-weight: bold;
+
+}
+
+/* =========================
+SIDEBAR LINKS
+========================= */
+
+.sidebar a {
+
+    display: block;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 18px 30px;
+
+    margin: 10px;
+
+    border-radius: 12px;
+
+    transition: 0.3s;
+
+    font-size: 18px;
+
+}
+
+.sidebar a:hover {
+
+    background:
+    linear-gradient(
+        90deg,
+        #2563eb,
+        #3b82f6
+    );
+
+    transform: translateX(5px);
+
+}
+
+/* =========================
+MAIN AREA
+========================= */
+
+.main {
+
+    margin-left: 280px;
+
+    padding: 40px;
+
+}
+
+/* =========================
+TOPBAR
+========================= */
+
+.topbar h1 {
+
+    font-size: 38px;
+
+    margin-bottom: 30px;
+
+    font-weight: bold;
+
+}
+
+/* =========================
+CARDS
+========================= */
+
+.cards {
+
+    display: flex;
+
+    gap: 25px;
+
+    margin-bottom: 40px;
+
+    flex-wrap: wrap;
+
+}
+
+.card {
+
+    flex: 1;
+
+    min-width: 220px;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.06
+    );
+
+    backdrop-filter: blur(20px);
+
+    border:
+    1px solid rgba(
+        255,
+        255,
+        255,
+        0.08
+    );
+
+    transition: 0.3s;
+
+    box-shadow:
+    0 0 15px rgba(
+        0,
+        0,
+        0,
+        0.2
+    );
+
+}
+
+.card:hover {
+
+    transform:
+    translateY(-5px);
+
+}
+
+.card h2 {
+
+    margin-bottom: 15px;
+
+    color: #93c5fd;
+
+}
+
+.card p {
+
+    font-size: 38px;
+
+    font-weight: bold;
+
+}
+
+/* =========================
+FORM BOX
+========================= */
+
+.form-box {
+
+    width: 600px;
+
+    max-width: 100%;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.06
+    );
+
+    backdrop-filter: blur(20px);
+
+    border:
+    1px solid rgba(
+        255,
+        255,
+        255,
+        0.08
+    );
+
+    box-shadow:
+    0 0 20px rgba(
+        0,
+        0,
+        0,
+        0.2
+    );
+
+}
+
+/* =========================
+SELECT BOX
+========================= */
+
+select {
+
+    width: 100%;
+
+    height: 55px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding-left: 15px;
+
+    padding-right: 15px;
+
+    font-size: 16px;
+
+    margin-top: 20px;
+
+    background: #1e293b;
+
+    color: white;
+
+    outline: none;
+
+    cursor: pointer;
+
+}
+
+select option {
+
+    background: #1e293b;
+
+    color: white;
+
+    padding: 10px;
+
+}
+
+/* =========================
+BUTTONS
+========================= */
+
+button {
+
+    width: 100%;
+
+    height: 55px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    margin-top: 20px;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    background:
+    linear-gradient(
+        90deg,
+        #2563eb,
+        #3b82f6
+    );
+
+}
+
+button:hover {
+
+    transform:
+    scale(1.02);
+
+    background:
+    linear-gradient(
+        90deg,
+        #1d4ed8,
+        #2563eb
+    );
+
+}
+
+/* =========================
+TABLE CONTAINER
+========================= */
+
+.table-box {
+
+    margin-top: 30px;
+
+    padding: 25px;
+
+    border-radius: 25px;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.06
+    );
+
+    backdrop-filter: blur(20px);
+
+    border:
+    1px solid rgba(
+        255,
+        255,
+        255,
+        0.08
+    );
+
+    box-shadow:
+    0 0 20px rgba(
+        0,
+        0,
+        0,
+        0.25
+    );
+
+    overflow-x: auto;
+
+}
+
+/* =========================
+TABLE
+========================= */
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+}
+
+/* =========================
+TABLE HEADER
+========================= */
+
+th {
+
+    padding: 20px;
+
+    font-size: 17px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #2563eb,
+        #3b82f6
+    );
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+}
+
+/* =========================
+TABLE DATA
+========================= */
+
+td {
+
+    padding: 18px;
+
+    text-align: center;
+
+    border-bottom:
+    1px solid rgba(
+        255,
+        255,
+        255,
+        0.08
+    );
+
+    transition: 0.2s;
+
+}
+
+/* =========================
+TABLE ROW HOVER
+========================= */
+
+tr:hover {
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.05
+    );
+
+}
+
+/* =========================
+STATUS COLORS
+========================= */
+
+.good {
+
+    color: #4ade80;
+
+    font-weight: bold;
+
+}
+
+.low {
+
+    color: #f87171;
+
+    font-weight: bold;
+
+}
+/* =========================
+SEARCH BOX
+========================= */
+
+.search-box {
+
+    width: 100%;
+
+    padding: 15px;
+
+    margin-top: 10px;
+
+    margin-bottom: 20px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #1e293b;
+
+    color: white;
+
+    font-size: 16px;
+
+    outline: none;
+
+}
+
+/* =========================
+MEDIUM STATUS
+========================= */
+
+.medium {
+
+    color: #facc15;
+
+    font-weight: bold;
+
+}
+
+/* =========================
+STICKY HEADER
+========================= */
+
+thead {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+}
+
+/* =========================
+CHART BOX
+========================= */
+
+.chart-box {
+
+    width: 100%;
+
+    margin-bottom: 25px;
+
+    padding: 25px;
+
+    border-radius: 25px;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.06
+    );
+
+    backdrop-filter: blur(20px);
+
+    border:
+    1px solid rgba(
+        255,
+        255,
+        255,
+        0.08
+    );
+
+    box-shadow:
+    0 0 20px rgba(
+        0,
+        0,
+        0,
+        0.25
+    );
+
+}
+
+/* =========================
+CHART TITLE
+========================= */
+
+.chart-box h2 {
+
+    margin-bottom: 20px;
+
+    color: #93c5fd;
+
+}
+
+/* =========================
+PIE CHART SIZE
+========================= */
+
+#attendanceChart {
+
+    max-width: 450px;
+
+    max-height: 450px;
+
+    margin: auto;
+
+    display: block;
+
+}
