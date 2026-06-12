@@ -1,11 +1,12 @@
-﻿import cv2
-import pandas as pd
 
-from pyzbar.pyzbar import decode
+import pandas as pd
 from attendance_manager import mark_attendance, increase_total_classes
 
 
 def start_scanner(subject):
+    import cv2
+    from pyzbar.pyzbar import decode
+    
     subject = str(subject).strip()
     if not subject:
         print("Subject is required.")
