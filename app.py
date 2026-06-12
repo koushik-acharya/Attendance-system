@@ -6,10 +6,6 @@ from flask import jsonify
 import pandas as pd
 import os
 
-from attendance_scanner import (
-    start_scanner
-)
-
 from percentage_calculator import (
     calculate_percentage
 )
@@ -75,7 +71,9 @@ def scanner():
     subject = request.form.get(
         "subject"
     )
-
+    try:
+        from attendance_scanner import 
+    start_scanner
     start_scanner(subject)
 
     return jsonify({
@@ -84,6 +82,11 @@ def scanner():
         f"Attendance Completed For {subject}"
 
     })
+
+except Exception as e:
+return jsonify({
+    "message": f"Scanner cannot run on Railway: {str(e)}"
+})
 
 # =========================
 # CALCULATE PERCENTAGE
