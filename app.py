@@ -71,11 +71,7 @@ def scanner():
     subject = request.form.get(
         "subject"
     )
-    try:
-        from attendance_scanner import (
-    start_scanner
-        )
-    start_scanner(subject)
+   
 
     return jsonify({
 
