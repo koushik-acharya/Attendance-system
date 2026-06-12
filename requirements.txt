@@ -1,7 +1,7 @@
 Flask
 pandas
 openpyxl
-opencv-python
 pyzbar
 numpy
 gunicorn
+opencv-python-headless
