@@ -80,10 +80,7 @@ def scanner():
 
     })
 
-except Exception as e:
-return jsonify({
-    "message": f"Scanner cannot run on Railway: {str(e)}"
-})
+
 
 # =========================
 # CALCULATE PERCENTAGE
