@@ -1,6 +1,7 @@
 
 import pandas as pd
-from attendance_manager import mark_attendance, increase_total_classes
+from attendance_manager import 
+mark_attendance, increase_total_classes
 
 
 def start_scanner(subject):
