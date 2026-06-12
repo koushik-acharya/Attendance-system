@@ -72,8 +72,9 @@ def scanner():
         "subject"
     )
     try:
-        from attendance_scanner import 
+        from attendance_scanner import (
     start_scanner
+        )
     start_scanner(subject)
 
     return jsonify({
